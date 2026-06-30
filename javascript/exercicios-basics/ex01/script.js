@@ -1,3 +1,4 @@
+/*
 function calcular(numero1, numero2, operacao) {
     if (operacao === "somar") {
         return numero1 + numero2;
@@ -27,3 +28,26 @@ console.log(resultado4);
 
 const resultadoZ = calcular(resultado1, 2, "multiplicar")
 console.log(resultadoZ)
+*/
+
+//usando switch case
+
+function calcular(numero1, numero2, operacao) {
+    switch (operacao) {
+        case "somar":
+            return numero1 + numero2;
+        case "subtrair":
+            return numero1 - numero2;
+        case "multiplicar":
+            return numero1 * numero2;
+        default:
+            return "operação inválida"
+    }
+}
+
+// nesse caso posso deixar sem o break pois o return já faz o papel de sair da função. se fosse usar o break teria que ser junto com o console.log
+
+console.log(calcular(10, 5, "somar"));
+console.log(calcular(10, 5, "subtrair"));
+console.log(calcular(10, 5, "multiplicar"));
+console.log(calcular(10, 5, "dividir"));
