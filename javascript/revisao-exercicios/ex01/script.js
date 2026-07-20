@@ -8,17 +8,14 @@ const itens = []
 
 // ação com o click no botão
 botao.addEventListener("click", () => {
-    
     const item = campo.value;
 
     if (item === "") {
-        alert ("Não é possível adicionar um item vazio.")
+        alert ("Não pode adicionar item vazio.")
     }
     else {
         itens.push(item)
 
-        // atualizar lista na tela
-    lista.innerHTML = itens.map(item => `<li>${item}</li>`).join("")
+        lista.innerHTML = itens.map(item => `<li>${item}</li>`).join("")
     }
-
 })
