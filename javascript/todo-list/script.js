@@ -9,7 +9,7 @@ const tarefas = []
 /* Função renderizar para atualizar sempre que tiver mudanças no array e retornar um <li> com o botao de excluir e a função de riscar o texto quando concluída. */
 function renderizar() {
     lista.innerHTML = tarefas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task.concluida ? 'text-decoration: line-through' : ''}"> ${task.descricao} <button onclick="excluir(${index})">Excluir</button>
+        return `<li onclick="concluir(${index})" style="${task.concluida ? 'text-decoration: line-through' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
     </li>`
     }).join("")
 }
