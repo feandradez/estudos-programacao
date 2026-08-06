@@ -8,24 +8,34 @@ const tarefas = []
 
 /* Função renderizar para atualizar sempre que tiver mudanças no array e retornar um <li> com o botao de excluir e a função de riscar o texto quando concluída. */
 function renderizar() {
-    lista.innerHTML = tarefas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task.concluida ? 'text-decoration: line-through' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
-    </li>`
+
+    if(tarefas.length === 0) {
+        lista.innerHTML = "Nenhuma tarefa adicionada ainda."
+    } else {
+        lista.innerHTML = tarefas.map((task, index) => {
+        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
+        </li>`
     }).join("")
+    }  
+
 }
 
 // Função pra adicionar as tasks ao array vazio.
 function adicionar() {
     
-    const task = {
+    if (campo.value === "") {
+        alert("Digite uma tarefa antes de adicionar!")
+    } else {
+        const task = {
         descricao: campo.value,
         concluida: false
     }
-
-    tarefas.push(task);
-    renderizar();
-
+        tarefas.push(task);
+        renderizar();
+        campo.value = ""
+    }
 }
+
 // Função para excluir a task do array.
 function excluir(index) {
     tarefas.splice(index, 1);
@@ -54,3 +64,5 @@ botao.addEventListener("click", () => {
 document.querySelector("#tema").addEventListener("click", () => {
     document.body.classList.toggle("claro")
 })
+
+renderizar()
