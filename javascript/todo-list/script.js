@@ -25,7 +25,7 @@ function renderizar() {
         lista.innerHTML = "Nenhuma tarefa adicionada ainda."
     } else {
         lista.innerHTML = tarefasFiltradas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.5;' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
+        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.3;' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
         </li>`
     }).join("")
     }  
