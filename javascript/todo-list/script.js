@@ -25,7 +25,7 @@ function renderizar() {
         lista.innerHTML = "Nenhuma tarefa adicionada ainda."
     } else {
         lista.innerHTML = tarefasFiltradas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
+        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.5;' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
         </li>`
     }).join("")
     }  
@@ -96,14 +96,20 @@ document.querySelector("#tema").addEventListener("click", () => {
 // EventListener nos botoes para os filtros.
 document.querySelector("#filtro-todas").addEventListener("click", () => {
     filtroAtivo = "todas"
+    document.querySelectorAll(".filtros button").forEach(btn => btn.classList.remove("ativo"))
+    document.querySelector("#filtro-todas").classList.add("ativo")
     renderizar()
 })
 document.querySelector("#filtro-pendentes").addEventListener("click", () => {
     filtroAtivo = "pendentes"
+    document.querySelectorAll(".filtros button").forEach(btn => btn.classList.remove("ativo"))
+    document.querySelector("#filtro-pendentes").classList.add("ativo")
     renderizar()
 })
 document.querySelector("#filtro-concluidas").addEventListener("click", () => {
     filtroAtivo = "concluidas"
+    document.querySelectorAll(".filtros button").forEach(btn => btn.classList.remove("ativo"))
+    document.querySelector("#filtro-concluidas").classList.add("ativo")
     renderizar()
 })
 

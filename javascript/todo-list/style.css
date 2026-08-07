@@ -164,3 +164,45 @@ body.claro {
     --texto-secundario: #666666;
     --borda: #e0e0e0;
 }
+
+/* Área dos filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Botões de filtro */
+.filtros button {
+    padding: 8px 18px;
+    background: transparent;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    color: var(--texto-secundario);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filtros button:hover {
+    border-color: var(--destaque);
+    color: var(--destaque);
+}
+
+/* Contador */
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+.filtros button.ativo {
+    border-color: var(--destaque);
+    color: var(--destaque);
+    background: rgba(255, 45, 45, 0.1);
+}

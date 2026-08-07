@@ -14,22 +14,30 @@
 
     <!--Div pra centralizar tudo-->
     <div class="container">
+        
         <h1>To-Do List</h1>
+        
         <div class="input-area">
             <input type="text" id="campo">
             <button id="botao">Adicionar</button>
         </div>
+       
         <ul id="lista"></ul>
         
         <!--Contagem das tarefas-->
-        <p id="total"></p>
-        <p id="concluidas"></p>
-        <p id="pendentes"></p>
-
+        <div class="contador">
+            <p id="total"></p>
+            <p id="concluidas"></p>
+            <p id="pendentes"></p>
+        </div>
+        
         <!--Filtros de tarefas-->
-        <button id="filtro-todas">Todas</button>
-        <button id="filtro-pendentes">Pendentes</button>
-        <button id="filtro-concluidas">Concluídas</button>
+        <div class="filtros">
+            <button id="filtro-todas" class="ativo">Todas</button>
+            <button id="filtro-pendentes">Pendentes</button>
+            <button id="filtro-concluidas">Concluídas</button>
+        </div>
+        
     </div>
 
 </body>
