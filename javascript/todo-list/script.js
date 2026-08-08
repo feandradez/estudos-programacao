@@ -4,7 +4,7 @@ const botao = document.querySelector("#botao")
 const lista = document.querySelector("#lista")
 
 // Array vazio para receber cada task.
-const tarefas = []
+let tarefas = []
 
 // Filtro de tarefas -> variavel com filtro ativo.
 let filtroAtivo = "todas"
@@ -110,6 +110,11 @@ document.querySelector("#filtro-concluidas").addEventListener("click", () => {
     filtroAtivo = "concluidas"
     document.querySelectorAll(".filtros button").forEach(btn => btn.classList.remove("ativo"))
     document.querySelector("#filtro-concluidas").classList.add("ativo")
+    renderizar()
+})
+
+document.querySelector("#limpar").addEventListener("click", () => {
+    tarefas = tarefas.filter(task => task.concluida === false)
     renderizar()
 })
 

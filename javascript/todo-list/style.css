@@ -113,6 +113,21 @@ input::placeholder {
     opacity: 0.85;
 }
 
+#limpar {
+    background: transparent;
+    border: none;
+    color: var(--destaque);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    text-decoration: underline;
+}
+
+#limpar:hover {
+    opacity: 0.7;
+}
+
 /* Lista */
 ul {
     list-style: none;
