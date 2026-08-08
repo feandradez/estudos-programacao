@@ -222,3 +222,8 @@ body.claro {
     color: var(--destaque);
     background: rgba(255, 45, 45, 0.1);
 }
+
+.botoes {
+    display: flex;
+    gap: 8px;
+}

@@ -25,7 +25,11 @@ function renderizar() {
         lista.innerHTML = "Nenhuma tarefa adicionada ainda."
     } else {
         lista.innerHTML = tarefasFiltradas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.3;' : ''}"> ${task.descricao} <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button>
+        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.3;' : ''}"> ${task.descricao} 
+            <div class = "botoes">
+                <button onclick="event.stopPropagation(); editar(${index})">Editar</button>
+                <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button> 
+            </div>
         </li>`
     }).join("")
     }  
@@ -58,6 +62,13 @@ function excluir(index) {
 // Função para concluir a task.
 function concluir(index) {
     tarefas[index].concluida = !tarefas[index].concluida;
+    renderizar()
+}
+
+// Função editar (editar os textos das tarefas já criadas).
+function editar(index){
+    const novoTexto = prompt("Editar tarefa:", tarefas[index].descricao)
+    tarefas[index].descricao = novoTexto
     renderizar()
 }
 
