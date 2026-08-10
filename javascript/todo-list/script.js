@@ -15,6 +15,23 @@ if (tarefasSalvas) {
 // Filtro de tarefas -> variavel com filtro ativo.
 let filtroAtivo = "todas"
 
+let indiceDragging = null
+
+function dragStart(index) {
+    indiceDragging = index
+}
+
+function dragOver(event, index) {
+    event.preventDefault()
+}
+
+function drop(index) {
+    const tarefaArrastada = tarefas[indiceDragging]
+    tarefas.splice(indiceDragging, 1)
+    tarefas.splice(index, 0, tarefaArrastada)
+    renderizar()
+}
+
 /* Função renderizar para atualizar sempre que tiver mudanças no array e retornar um <li> com o botao de excluir e a função de riscar o texto quando concluída. */
 function renderizar() {
 
@@ -31,7 +48,12 @@ function renderizar() {
         lista.innerHTML = "Nenhuma tarefa adicionada ainda."
     } else {
         lista.innerHTML = tarefasFiltradas.map((task, index) => {
-        return `<li onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.3;' : ''}"> ${task.descricao} 
+        return `<li      
+        draggable="true"
+        ondragstart="dragStart(${index})"
+        ondragover="dragOver(event, ${index})"
+        ondrop="drop(${index})"
+        onclick="concluir(${index})" style="${task. concluida ? 'text-decoration: line-through; opacity: 0.3;' : ''}"> ${task.descricao} 
             <div class = "botoes">
                 <button onclick="event.stopPropagation(); editar(${index})">Editar</button>
                 <button onclick="event.stopPropagation(); excluir(${index})">Excluir</button> 
