@@ -6,6 +6,12 @@ const lista = document.querySelector("#lista")
 // Array vazio para receber cada task.
 let tarefas = []
 
+// Carregar tarefas do localStorage.
+const tarefasSalvas = localStorage.getItem("tarefas")
+if (tarefasSalvas) {
+    tarefas = JSON.parse(tarefasSalvas)
+}
+
 // Filtro de tarefas -> variavel com filtro ativo.
 let filtroAtivo = "todas"
 
@@ -33,6 +39,8 @@ function renderizar() {
         </li>`
     }).join("")
     }  
+
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
 
     atualizarContador()
 }
